@@ -80,7 +80,7 @@
 
         <!-- Plugins -->
         <version.clean.plugin>3.0.0</version.clean.plugin>
-        <version.compiler.plugin>3.5.1</version.compiler.plugin>
+        <version.compiler.plugin>3.7.0</version.compiler.plugin>
         <version.dependency.plugin>2.10</version.dependency.plugin>
         <version.exec.plugin>1.5.0</version.exec.plugin>
         <version.failsafe.plugin>2.19.1</version.failsafe.plugin>
@@ -104,9 +104,10 @@
         <version.junit>4.12</version.junit>
         <version.jsonunit>1.12.1</version.jsonunit>
         <version.jackson>2.8.2</version.jackson>
+        <version.mockito>1.10.19</version.mockito>
 
         <!-- App servers -->
-        <version.wildfly-swarm>2017.2.0</version.wildfly-swarm>
+        <version.wildfly-swarm>2018.3.3</version.wildfly-swarm>
         <version.payara>4.1.2.173</version.payara>
         <version.payara.embedded>4.1.2.173.0.1</version.payara.embedded>
         <version.tomee>7.0.1</version.tomee>
@@ -115,16 +116,19 @@
 
         <!-- Dependencies -->
         <version.microprofile>1.2</version.microprofile>
-        <version.resteasy>3.0.19.Final</version.resteasy>
-        <version.swagger>1.5.10</version.swagger>
+        <version.resteasy>3.0.24.Final</version.resteasy>
+        <version.swagger>1.5.18</version.swagger>
         <version.swizzle-stream>1.6.2</version.swizzle-stream>
         <version.commons-io>2.5</version.commons-io>
         <version.commons-lang3>3.4</version.commons-lang3>
         <version.collections>3.2.2</version.collections>
 
+        <version.keycloak>3.1.0.Final</version.keycloak>
+
         <!--Environment-->
         <warfile.name>ROOT</warfile.name>
         <qualifier.jar></qualifier.jar>
+        <version.restassured>3.0.7</version.restassured>
     </properties>
 
     <modules>
@@ -133,8 +137,11 @@
         <module>microservice-vote</module>
         <module>microservice-speaker</module>
         <module>microservice-schedule</module>
+        <!-- microservice-gateway -->
+        <!-- microservice-authz -->
         <module>web-application</module>
-        <module>start</module>
+        <module>microservice-authz</module>
+        <!-- start -->
     </modules>
 
     <dependencyManagement>
@@ -142,7 +149,7 @@
             <!-- MicroProfile -->
             <dependency>
                 <groupId>org.eclipse.microprofile</groupId>
-                <artifactId>microprofile</artifactId>                
+                <artifactId>microprofile</artifactId>
                 <version>${version.microprofile}</version>
                 <type>pom</type>
                 <scope>provided</scope>
@@ -279,9 +286,8 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
-            <artifactId>microprofile</artifactId>            
+            <artifactId>microprofile</artifactId>
             <type>pom</type>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

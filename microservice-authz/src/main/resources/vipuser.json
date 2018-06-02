@@ -1,0 +1,22 @@
+{
+    "iss": "https://mpconference.com",
+    "jti": "a-123",
+    "sub": "24400320",
+    "upn": "user1@example.com",
+    "preferred_username": "user1",
+    "aud": [
+        "vote",
+        "sessions",
+        "schedule"
+    ],
+    "exp": 1311281970,
+    "iat": 1311280970,
+    "auth_time": 1311280969,
+    "groups": [
+        "Alumni",
+        "Voter",
+        "Registered",
+        "VIP"
+    ],
+    "session_time_preference": "Morning"
+}

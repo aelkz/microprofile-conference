@@ -24,8 +24,11 @@ import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
+import org.jboss.shrinkwrap.resolver.api.maven.ScopeType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wildfly.swarm.Swarm;
+import org.wildfly.swarm.arquillian.CreateSwarm;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -44,6 +47,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Properties;
 
 import static org.junit.Assert.assertEquals;
 
@@ -61,13 +65,29 @@ public class ScheduleResourceClientTest {
 
     @Deployment
     public static WebArchive createDeployment() {
+        // final File bootstrapLib = Maven.resolver().resolve("io.microprofile.showcase:demo-bootstrap:1.0.0-SNAPSHOT").withoutTransitivity().asSingleFile();
 
-        final File bootstrapLib = Maven.resolver().resolve("io.microprofile.showcase:demo-bootstrap:1.0.0-SNAPSHOT").withoutTransitivity().asSingleFile();
+        File[] deps = Maven.resolver().loadPomFromFile("pom.xml")
+            .importDependencies(ScopeType.COMPILE, ScopeType.RUNTIME).resolve().withoutTransitivity()
+            .asFile();
+
+//        return ShrinkWrap.create(WebArchive.class, "schedule-microservice.war")
+//                .addPackage(Schedule.class.getPackage())
+//                .addClasses(ScheduleResource.class, ScheduleDAO.class, Application.class)
+//                .addAsLibraries(bootstrapLib);
 
         return ShrinkWrap.create(WebArchive.class, "schedule-microservice.war")
-                .addPackage(Schedule.class.getPackage())
-                .addClasses(ScheduleResource.class, ScheduleDAO.class, Application.class)
-                .addAsLibraries(bootstrapLib);
+            .addPackages(true, "io.microprofile.showcase.schedule")
+            .addAsLibraries(deps);
+    }
+
+    @CreateSwarm
+    public static Swarm newContainer() throws Exception {
+        Properties properties = new Properties();
+        properties.put("swarm.http.port", 6060);
+        properties.put("java.util.logging.manager", "org.jboss.logmanager.LogManager");
+        Swarm swarm = new Swarm(properties);
+        return swarm.withProfile("defaults");
     }
 
     @Test

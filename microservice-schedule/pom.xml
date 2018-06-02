@@ -135,7 +135,7 @@
                         <groupId>io.fabric8</groupId>
                         <artifactId>fabric8-maven-plugin</artifactId>
                         <configuration>
-                            <mode>docker</mode>
+                            <mode>kubernetes</mode>
                             <images>
                                 <image>
                                     <name>${docker.user}/${project.artifactId}:${project.version}</name>

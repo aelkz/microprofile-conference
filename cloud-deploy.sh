@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # A script to deploy all of the microservices to openshift
+# OBS. If you`re no running/using https://github.com/fabric8io/fabric8-maven-plugin
 
 # microservice-authz
 cd microservice-authz

@@ -16,8 +16,7 @@ spec:
           {icon}
     spec:
       containers:
-      - name: ${service.name}
-        ports:
-        - containerPort: ${service.port}
+        - ports:
+          - containerPort: ${service.port}
+          name: ${service.name}
           protocol: TCP
-          name: http

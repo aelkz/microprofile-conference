@@ -9,7 +9,7 @@ The application consists of several Microservices and a Web-Application managing
 [options="header"]
 |=====
 | Microservice Name | Powered By | Description | Technologies
-| link:/microservice-schedule/README.adoc[microservice-schedule] | https://www.payara.fish/payara_micro[Payara Micro] | Schedule of the conference | JAX-RS, CDI 
+| link:/microservice-schedule/README.adoc[microservice-schedule] | https://www.payara.fish/payara_micro[Payara Micro] | Schedule of the conference | JAX-RS, CDI
 | link:/microservice-session/README.adoc[microservice-session] | http://wildfly-swarm.io/[WildFly Swarm] | Sessions of the conference | JAX-RS, CDI, JSON-P
 | link:/microservice-speaker/readme.adoc[microservice-speaker] | http://tomee.apache.org/[Apache TomEE] | Speakers of the conference | JAX-RS, CDI, JSON
 | link:/microservice-vote/README.adoc[microservice-vote] | https://developer.ibm.com/wasdev/[WebSphere Liberty] | Votes for each session | JAX-RS, CDI, JSON-P, MP Config, MP Fault Tolerance, MP Metrics, MP Health
@@ -116,3 +116,9 @@ This application is a collaborative demonstration application by:
 * Tomitribe
 * Payara
 
+== Compatibility
+
+* minishift v1.17.0+f974f0c
+* oc v3.9.0+191fece
+* kubernetes v1.9.1+a0ce1bc657
+* openshift v3.9.0+46ff3a0-18

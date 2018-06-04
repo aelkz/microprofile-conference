@@ -16,7 +16,13 @@ spec:
           {icon}
     spec:
       containers:
-      - name: ${service.name}
-        ports:
-        - containerPort: ${service.port}
-          name: http
+        - readinessProbe:
+          failureThreshold: 4
+          httpGet:
+            path: /speaker
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5

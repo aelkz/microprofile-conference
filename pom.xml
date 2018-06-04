@@ -92,7 +92,8 @@
         <version.site.plugin>3.5.1</version.site.plugin>
         <version.surefire.plugin>2.19.1</version.surefire.plugin>
         <version.war.plugin>2.6</version.war.plugin>
-        <version.fabric8.plugin>3.1.83</version.fabric8.plugin>
+        <!-- prior versions will not work with wildfly based applications -->
+        <version.fabric8.plugin>3.5.39</version.fabric8.plugin>
         <version.liberty.plugin>2.1</version.liberty.plugin>
 
         <!-- Test -->

@@ -14,9 +14,3 @@ spec:
       annotations:
         fabric8.io/iconUrl: >-
           {icon}
-    spec:
-      containers:
-        - ports:
-          - containerPort: ${service.port}
-          name: ${service.name}
-          protocol: TCP

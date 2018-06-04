@@ -20,7 +20,7 @@ spec:
           failureThreshold: 4
           httpGet:
             path: /speaker
-            port: 8080
+            port: ${container.port}
             scheme: HTTP
           initialDelaySeconds: 15
           periodSeconds: 10

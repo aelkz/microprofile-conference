@@ -13,8 +13,6 @@
  */
 package io.microprofile.showcase.speaker.domain;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.microprofile.showcase.speaker.model.Speaker;
 import org.apache.commons.io.IOUtils;
 import org.codehaus.swizzle.stream.IncludeFilterInputStream;

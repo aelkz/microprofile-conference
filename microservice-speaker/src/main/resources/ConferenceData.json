@@ -6,8 +6,9 @@
 		"organization": "Diam Nunc Ltd",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "45",
@@ -16,8 +17,9 @@
 		"organization": "Sed LLC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "46",
@@ -26,8 +28,9 @@
 		"organization": "Dictum Consulting",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "47",
@@ -36,8 +39,9 @@
 		"organization": "Eu Nulla Consulting",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "48",
@@ -46,8 +50,9 @@
 		"organization": "In Limited",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "49",
@@ -56,8 +61,9 @@
 		"organization": "Nec Quam Limited",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "50",
@@ -66,8 +72,9 @@
 		"organization": "Mauris Eu Corp.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "51",
@@ -76,8 +83,9 @@
 		"organization": "Mauris Nulla Consulting",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "52",
@@ -86,8 +94,9 @@
 		"organization": "Facilisis Non Bibendum LLC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "53",
@@ -96,8 +105,9 @@
 		"organization": "Mollis Industries",
 		"biography": "Lorem ipsum",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "54",
@@ -106,8 +116,9 @@
 		"organization": "Curabitur Incorporated",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "55",
@@ -116,8 +127,9 @@
 		"organization": "Velit Foundation",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "56",
@@ -126,8 +138,9 @@
 		"organization": "Eu Eleifend Company",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "57",
@@ -136,8 +149,9 @@
 		"organization": "Posuere Enim Institute",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "58",
@@ -146,8 +160,9 @@
 		"organization": "Et Ltd",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "59",
@@ -156,8 +171,9 @@
 		"organization": "Donec Luctus Consulting",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "60",
@@ -166,8 +182,9 @@
 		"organization": "Nullam PC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "61",
@@ -176,8 +193,9 @@
 		"organization": "Mattis Integer Company",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "62",
@@ -186,8 +204,9 @@
 		"organization": "Dapibus Ligula Aliquam Associates",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "63",
@@ -196,8 +215,9 @@
 		"organization": "Egestas Lacinia Institute",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "64",
@@ -206,8 +226,9 @@
 		"organization": "Mauris Quis Turpis PC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "65",
@@ -216,8 +237,9 @@
 		"organization": "Mauris Nulla Integer Corp.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "66",
@@ -226,8 +248,9 @@
 		"organization": "Mollis Lectus LLP",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "67",
@@ -236,8 +259,9 @@
 		"organization": "Etiam Gravida Company",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "68",
@@ -246,8 +270,9 @@
 		"organization": "Quis Turpis Vitae Corporation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "69",
@@ -256,8 +281,9 @@
 		"organization": "Dictum Phasellus Limited",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "70",
@@ -266,8 +292,9 @@
 		"organization": "Mollis Lectus LLC",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "71",
@@ -276,8 +303,9 @@
 		"organization": "Justo PC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "72",
@@ -286,8 +314,9 @@
 		"organization": "Enim Institute",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "73",
@@ -296,8 +325,9 @@
 		"organization": "Feugiat LLC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "74",
@@ -306,8 +336,9 @@
 		"organization": "Accumsan Associates",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "75",
@@ -316,8 +347,9 @@
 		"organization": "Mauris A Company",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "76",
@@ -326,8 +358,9 @@
 		"organization": "Leo Vivamus PC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "77",
@@ -336,8 +369,9 @@
 		"organization": "Aliquet Inc.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "78",
@@ -346,8 +380,9 @@
 		"organization": "Dolor Dolor Tempus Foundation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "79",
@@ -356,8 +391,9 @@
 		"organization": "Nonummy Associates",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "80",
@@ -366,8 +402,9 @@
 		"organization": "Mollis Phasellus Libero Incorporated",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "81",
@@ -376,8 +413,9 @@
 		"organization": "Nunc LLP",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "82",
@@ -386,8 +424,9 @@
 		"organization": "Montes Foundation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "83",
@@ -396,8 +435,9 @@
 		"organization": "Lorem Semper Limited",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "84",
@@ -406,8 +446,9 @@
 		"organization": "Vel Sapien LLC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "85",
@@ -416,8 +457,9 @@
 		"organization": "Metus Eu Corp.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "86",
@@ -426,8 +468,9 @@
 		"organization": "Laoreet LLC",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "87",
@@ -436,8 +479,9 @@
 		"organization": "Nonummy Fusce Fermentum Limited",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "88",
@@ -446,8 +490,9 @@
 		"organization": "Adipiscing Institute",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "89",
@@ -456,8 +501,9 @@
 		"organization": "Curabitur Corporation",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "90",
@@ -466,8 +512,9 @@
 		"organization": "Donec Incorporated",
 		"biography": "Lorem ipsum",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "91",
@@ -476,8 +523,9 @@
 		"organization": "Ante Nunc Mauris Inc.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "92",
@@ -486,8 +534,9 @@
 		"organization": "Enim Consulting",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "93",
@@ -496,8 +545,9 @@
 		"organization": "Eu Eros Nam Corp.",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "94",
@@ -506,8 +556,9 @@
 		"organization": "Ullamcorper Viverra Consulting",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "95",
@@ -516,8 +567,9 @@
 		"organization": "Erat Nonummy Ultricies Incorporated",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "96",
@@ -526,8 +578,9 @@
 		"organization": "Nulla Ante Corp.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "97",
@@ -536,8 +589,9 @@
 		"organization": "Malesuada Vel Associates",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "98",
@@ -546,8 +600,9 @@
 		"organization": "Id Enim Company",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "99",
@@ -556,8 +611,9 @@
 		"organization": "Quisque Porttitor Eros Ltd",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "100",
@@ -566,8 +622,9 @@
 		"organization": "A Industries",
 		"biography": "Lorem ipsum",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "101",
@@ -576,8 +633,9 @@
 		"organization": "In At Limited",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "102",
@@ -586,8 +644,9 @@
 		"organization": "Purus Maecenas Libero Company",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "103",
@@ -596,8 +655,9 @@
 		"organization": "Felis Orci Inc.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "104",
@@ -606,8 +666,9 @@
 		"organization": "Ornare Company",
 		"biography": "Lorem ipsum",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "105",
@@ -616,8 +677,9 @@
 		"organization": "Ligula Consectetuer Rhoncus Industries",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "106",
@@ -626,8 +688,9 @@
 		"organization": "Eleifend Nunc Corporation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "107",
@@ -636,8 +699,9 @@
 		"organization": "Vitae Risus Duis LLP",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "108",
@@ -646,8 +710,9 @@
 		"organization": "Dui Lectus Rutrum Corp.",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "109",
@@ -656,8 +721,9 @@
 		"organization": "Odio Aliquam Vulputate Consulting",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "110",
@@ -666,8 +732,9 @@
 		"organization": "Mauris Suspendisse LLC",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "111",
@@ -676,8 +743,9 @@
 		"organization": "Amet Faucibus Ut Industries",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "112",
@@ -686,8 +754,9 @@
 		"organization": "Sed Pede Nec LLP",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "113",
@@ -696,8 +765,9 @@
 		"organization": "Imperdiet Non Associates",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "114",
@@ -706,8 +776,9 @@
 		"organization": "Ut Corporation",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "115",
@@ -716,8 +787,9 @@
 		"organization": "Id Foundation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "116",
@@ -726,8 +798,9 @@
 		"organization": "Scelerisque Lorem Ltd",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "117",
@@ -736,8 +809,9 @@
 		"organization": "Et Euismod Et Foundation",
 		"biography": "Lorem ipsum",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "118",
@@ -746,8 +820,9 @@
 		"organization": "Duis Mi Associates",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "119",
@@ -756,8 +831,9 @@
 		"organization": "Sit Institute",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "120",
@@ -766,8 +842,9 @@
 		"organization": "Vulputate Corporation",
 		"biography": "Lorem ipsum",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "121",
@@ -776,8 +853,9 @@
 		"organization": "Odio A Associates",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "122",
@@ -786,8 +864,9 @@
 		"organization": "Lorem Institute",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "123",
@@ -796,8 +875,9 @@
 		"organization": "Arcu PC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "124",
@@ -806,8 +886,9 @@
 		"organization": "Nulla PC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "125",
@@ -816,8 +897,9 @@
 		"organization": "Luctus Institute",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "126",
@@ -826,8 +908,9 @@
 		"organization": "A Purus Institute",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "127",
@@ -836,8 +919,9 @@
 		"organization": "Pede Blandit Congue Ltd",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "128",
@@ -846,8 +930,9 @@
 		"organization": "Dolor Fusce Incorporated",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "129",
@@ -856,8 +941,9 @@
 		"organization": "Ullamcorper LLP",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "130",
@@ -866,8 +952,9 @@
 		"organization": "Amet Ultricies Sem PC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "131",
@@ -876,8 +963,9 @@
 		"organization": "Porttitor Company",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "132",
@@ -886,8 +974,9 @@
 		"organization": "Morbi Accumsan LLC",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "133",
@@ -896,8 +985,9 @@
 		"organization": "Aliquam Gravida Mauris Associates",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "134",
@@ -906,8 +996,9 @@
 		"organization": "Etiam Gravida Corp.",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "135",
@@ -916,8 +1007,9 @@
 		"organization": "A Neque Nullam Corporation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "136",
@@ -926,8 +1018,9 @@
 		"organization": "Pellentesque Associates",
 		"biography": "Lorem ipsum dolor",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "137",
@@ -936,8 +1029,9 @@
 		"organization": "Lobortis Quam A Foundation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "138",
@@ -946,8 +1040,9 @@
 		"organization": "Odio Company",
 		"biography": "Lorem ipsum",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "139",
@@ -956,8 +1051,9 @@
 		"organization": "Nulla Corp.",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "140",
@@ -966,8 +1062,9 @@
 		"organization": "Elit A Industries",
 		"biography": "Lorem ipsum dolor sit amet,",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "141",
@@ -976,8 +1073,9 @@
 		"organization": "Lacus Quisque Corporation",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "142",
@@ -986,8 +1084,9 @@
 		"organization": "Sed Dictum Proin Industries",
 		"biography": "Lorem ipsum dolor sit",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	},
 	{
 		"id": "143",
@@ -996,7 +1095,8 @@
 		"organization": "Felis Donec Limited",
 		"biography": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",
 		"picture": "assets/images/unknown.jpg",
-		"twitterHandle": null,
-		"links": { }
+		"twitterHandle": "",
+		"links": { },
+        "title" : ""
 	}
 ]

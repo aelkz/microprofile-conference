@@ -82,8 +82,9 @@ public class SpeakerDAO {
                     sp.setNameLast(names[1].trim());
                     // define organization and biography.
                     sp.setOrganization(bootstrap.getCompany());
-                    sp.setBiography(bootstrap.getJobTitle());
-
+                    sp.setTitle(bootstrap.getTitle());
+                    sp.setBiography("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus tortor augue, sed vehicula arcu cursus at. Sed eu interdum mauris, rhoncus interdum lacus. Vestibulum id libero commodo, pretium neque in, porta nunc. Cras gravida nulla id purus hendrerit, eu iaculis purus rutrum. Cras mi eros, vulputate a lacus at, tristique lacinia velit. Donec vel ultricies justo, vitae fringilla augue. Fusce tempor dui at lacus tincidunt, vitae volutpat ex cursus. Sed felis arcu, porttitor a lectus sit amet, suscipit cursus nibh. Pellentesque ac mauris felis. Nam maximus consequat justo ac sodales. Praesent ut turpis luctus, placerat arcu et, congue enim.");
+                    sp.setTwitterHandle("@"+names[0].trim().toLowerCase()+"_"+names[1].trim().toLowerCase());
                     // http://loremflickr.com/320/240/nature
                     sp.setPicture("assets/images/unknown.jpg");
 

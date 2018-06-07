@@ -14,7 +14,7 @@ java -jar target/microservice-speaker-exec.jar
 If you look at the output, you will find messages like the following:
 
 ----
-INFO - REST Application: http://localhost:4040/speaker               -> io.microprofile.showcase.speaker.rest.Application@68cda174
+INFO - REST Application: http://localhost:4040/speaker               -> io.microprofile.showcase.speaker.rest.SpeakerApplication@68cda174
 INFO - Service URI: http://localhost:4040/speaker/              -> Pojo io.microprofile.showcase.speaker.rest.ResourceSpeaker
 INFO - DELETE http://localhost:4040/speaker/remove/{id}   ->      void remove(String)
 ----

@@ -80,9 +80,9 @@ public class SpeakerDAO {
                     sp.setId(id);
                     sp.setNameFirst(names[0].trim());
                     sp.setNameLast(names[1].trim());
+                    // define organization and biography.
                     sp.setOrganization(bootstrap.getCompany());
                     sp.setBiography(bootstrap.getJobTitle());
-
 
                     // http://loremflickr.com/320/240/nature
                     sp.setPicture("assets/images/unknown.jpg");

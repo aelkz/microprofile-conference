@@ -116,6 +116,7 @@
         <version.liberty>17.0.0_04</version.liberty>
 
         <!-- Dependencies -->
+        <!-- WildFly Swarm has not fully implemented the MicroProfile 1.3 specification as of the 2018.3.3 release -->
         <version.microprofile>1.2</version.microprofile>
         <version.resteasy>3.0.24.Final</version.resteasy>
         <version.swagger>1.5.18</version.swagger>

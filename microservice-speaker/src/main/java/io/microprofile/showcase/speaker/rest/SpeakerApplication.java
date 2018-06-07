@@ -15,11 +15,12 @@ package io.microprofile.showcase.speaker.rest;
 
 
 import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
 /**
  * Root REST application context
  */
 @ApplicationPath("/speaker")
-public class Application extends javax.ws.rs.core.Application {
+public class SpeakerApplication extends Application {
 
 }

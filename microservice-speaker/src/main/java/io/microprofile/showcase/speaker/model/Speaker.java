@@ -18,6 +18,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.json.JsonObject;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -38,6 +39,18 @@ public class Speaker implements Serializable {
     private String biography;
     private String picture;
     private String twitterHandle;
+
+    public Speaker() { }
+
+    public Speaker(JsonObject json) {
+        this.id = json.getString("id");
+        this.nameFirst = json.getString("nameFirst");
+        this.nameLast = json.getString("nameLast");
+        this.organization = json.getString("organization");
+        this.biography = json.getString("biography");
+        this.picture = json.getString("picture");
+        this.twitterHandle = json.getString("twitterHandle");
+    }
 
     //TODO @XmlElement(name = "_links") Who cam up with this name? It just causes a whole world of serialization and mapper config issues
     private Map<String, URI> links = new HashMap<>();

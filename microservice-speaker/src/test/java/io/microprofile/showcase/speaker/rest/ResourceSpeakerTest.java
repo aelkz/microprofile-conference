@@ -56,7 +56,7 @@ public class ResourceSpeakerTest {
                 .addClasses(
                         SpeakerDAO.class,
                         ResourceSpeaker.class,
-                        Application.class,
+                        SpeakerApplication.class,
                         Venue.class,
                         VenueJavaOne2016.class,
                         ProducerVenue.class,

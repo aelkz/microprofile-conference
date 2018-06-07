@@ -20,12 +20,19 @@ import org.apache.commons.io.IOUtils;
 import org.codehaus.swizzle.stream.IncludeFilterInputStream;
 import org.codehaus.swizzle.stream.StreamLexer;
 
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonReaderFactory;
+import javax.json.JsonValue;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -39,8 +46,7 @@ public class VenueJavaOne2016 extends Venue {
 
     private final URL url = URI.create(System.getProperty("venue.url" + this.name, "https://www.oracle.com/javaone/speakers.html")).toURL();
 
-    VenueJavaOne2016() throws MalformedURLException {
-    }
+    VenueJavaOne2016() throws MalformedURLException { }
 
     @Override
     public String getName() {
@@ -144,10 +150,22 @@ public class VenueJavaOne2016 extends Venue {
     }
 
     private Set<Speaker> getSpeakersFile() throws IOException {
-        final ObjectMapper om = new ObjectMapper();
+        Set<Speaker> speakers = new HashSet<>();
         final InputStream is = this.getClass().getResourceAsStream("/ConferenceData.json");
-        return om.readValue(is, new TypeReference<Set<Speaker>>() {
-        });
+        //TODO Create a JsonReaderFactory
+        JsonReaderFactory factory = Json.createReaderFactory(null);
+        //TODO Create a JsonReader for the InputStream 'is' using the JsonReaderFactory
+        JsonReader reader = factory.createReader(is);
+        //TODO Create a JsonArray using the JsonReader
+        JsonArray speakerList = reader.readArray();
+
+        for (JsonValue item : speakerList) {
+            JsonObject speaker = (JsonObject) item;
+            // See Speaker(JsonObject obj)  constructor for conversion details
+            Speaker speakerObj = new Speaker(speaker);
+            speakers.add(speakerObj);
+        }
+        return speakers;
     }
 
     private Speaker processSpeakerToken(final String token) {

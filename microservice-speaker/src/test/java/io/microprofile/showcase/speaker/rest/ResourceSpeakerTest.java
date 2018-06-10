@@ -13,11 +13,18 @@
  */
 package io.microprofile.showcase.speaker.rest;
 
-import io.microprofile.showcase.speaker.domain.ProducerVenue;
-import io.microprofile.showcase.speaker.domain.Venue;
-import io.microprofile.showcase.speaker.domain.VenueJavaOne2016;
-import io.microprofile.showcase.speaker.model.Speaker;
-import io.microprofile.showcase.speaker.persistence.SpeakerDAO;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.junit.Assert.assertThat;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Properties;
+import java.util.logging.Logger;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
@@ -26,184 +33,189 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
-import org.junit.Assert;
+import org.jboss.shrinkwrap.resolver.api.maven.ScopeType;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wildfly.swarm.Swarm;
+import org.wildfly.swarm.arquillian.CreateSwarm;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import java.io.File;
-import java.net.URL;
-import java.util.Set;
-import java.util.logging.Logger;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.microprofile.showcase.speaker.model.Speaker;
+import io.restassured.http.ContentType;
 
 @RunWith(Arquillian.class)
 public class ResourceSpeakerTest {
 
     private final Logger log = Logger.getLogger(ResourceSpeakerTest.class.getName());
 
-    @Deployment(testable = false)
-    public static WebArchive deploy() {
-
-        final File bootstrapLib = Maven.resolver().resolve("io.microprofile.showcase:demo-bootstrap:1.0.0-SNAPSHOT").withoutTransitivity().asSingleFile();
-
-        return ShrinkWrap.create(WebArchive.class
-                , ResourceSpeakerTest.class.getName() + ".war")
-                .addClasses(
-                        SpeakerDAO.class,
-                        ResourceSpeaker.class,
-                        SpeakerApplication.class,
-                        Venue.class,
-                        VenueJavaOne2016.class,
-                        ProducerVenue.class,
-                        Speaker.class
-                )
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-                .addAsLibraries(
-                        bootstrapLib
-                );
-    }
-
     @ArquillianResource
     private URL url;
+
+    @Deployment
+    public static WebArchive deploy() {
+        File[] deps = Maven.resolver().loadPomFromFile("pom.xml")
+            .importDependencies(ScopeType.COMPILE, ScopeType.RUNTIME).resolve()
+            .withTransitivity().asFile();
+
+        WebArchive wrap = ShrinkWrap.create(WebArchive.class,
+            ResourceSpeakerTest.class.getName() + ".war")
+            .addPackages(true, "io.microprofile.showcase.speaker")
+            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+            .addAsResource(new File("src/test/resources/ConferenceData.json"))
+            .addAsManifestResource("META-INF/microprofile-config.properties", "microprofile-config.properties")
+            .addAsLibraries(deps);
+
+        return wrap;
+    }
+
+
+    @CreateSwarm
+    public static Swarm newContainer() throws Exception {
+        Properties properties = new Properties();
+        properties.put("swarm.http.port", 8080);
+        properties.put("java.util.logging.manager", "org.jboss.logmanager.LogManager");
+        Swarm swarm = new Swarm(properties);
+        return swarm.withProfile("defaults");
+    }
 
     @Test
     @RunAsClient
     public void testGet() {
-
-        final Set<Speaker> speakers = this.getWebTarget("speaker")
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get(new GenericType<Set<Speaker>>() {
-                });
-
-        Assert.assertFalse(speakers.isEmpty());
-
-        for (final Speaker speaker : speakers) {
-            this.log.info("Listed: " + speaker.getNameFirst() + " " + speaker.getNameLast());
-        }
+        given().when().contentType(ContentType.JSON).get("/speaker").then().statusCode(200).body("findAll.size()",is(200));
     }
 
     @Test
     @RunAsClient
-    public void testSearch() {
+    public void testSearch() throws JsonGenerationException, JsonMappingException, IOException {
 
         final Speaker search = new Speaker();
-        search.setNameFirst("Oct");
-        search.setNameLast("O");
+        search.setNameFirst("Indig");
+        search.setNameLast("8");
 
-        final Set<Speaker> speakers = this.getWebTarget("speaker/search").request(MediaType.APPLICATION_JSON_TYPE)
-                .put(Entity.json(search))
-                .readEntity(new GenericType<Set<Speaker>>() {
-                });
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(search);
 
-        Assert.assertFalse(speakers.isEmpty());
-
-        boolean foundOctavia = false;
-
-        for (final Speaker speaker : speakers) {
-            this.log.info("Found: " + speaker.getNameFirst() + " " + speaker.getNameLast());
-            if ("Octavia".equals(speaker.getNameFirst()) && "Olson".equals(speaker.getNameLast())) {
-                foundOctavia = true;
-            }
-        }
-
-        Assert.assertTrue(foundOctavia);
+        given().when()
+            .with()
+            .body(json)
+            .contentType(ContentType.JSON)
+            .put("speaker/search")
+        .then()
+        .statusCode(200)
+        .body("findAll.size()", is(1));
     }
 
     @Test
     @RunAsClient
-    public void testAddandRetrieve() {
-
+    public void testAddandRetrieve() throws IOException {
+        // Instantiate the speaker that will be added to the speaker list.
         Speaker speaker = new Speaker();
         speaker.setNameFirst("Andy");
         speaker.setNameLast("Gumbrecht");
         speaker.setOrganization("Tomitribe");
         speaker.setTwitterHandle("@AndyGeeDe");
         speaker.setBiography("Some bloke");
-        speaker.setPicture("https://pbs.twimg.com/profile_images/425313992689475584/KIrtgA86.jpeg");
+        speaker.setPicture("http://pbs.twimg.com/profile_images/425313992689475584/KIrtgA86.jpeg");
 
-        final Speaker added = this.getWebTarget("speaker/add").request(MediaType.APPLICATION_JSON_TYPE)
-                .post(Entity.json(speaker))
-                .readEntity(Speaker.class);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(speaker);
 
-        final String id = added.getId();
-        Assert.assertNotNull(id);
+        String result = given().when()
+            .with()
+            .body(json)
+            .contentType(ContentType.JSON)
+            .post("speaker/add")
+        .then()
+        .statusCode(200)
+        .extract().asString();
 
-        speaker = this.getWebTarget("speaker/retrieve/{id}").resolveTemplate("id", id)
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get()
-                .readEntity(Speaker.class);
+        Speaker response = mapper.readValue(result, Speaker.class);
+        assertThat(response, notNullValue());
+        String value = response.getId();
 
-        Assert.assertEquals("Failed to get added speaker", "Gumbrecht", speaker.getNameLast());
-        this.log.info("Added: " + speaker.toString());
+        String returnedSpeaker = given().when()
+            .contentType(ContentType.JSON)
+            .get("/spekaer/retrieve/" +     value)
+        .then()
+        .statusCode(200)
+        .extract().asString();
+
+        Speaker resultSpeaker = mapper.readValue(returnedSpeaker, Speaker.class);
+        assertThat(resultSpeaker, notNullValue());
+        assertThat(resultSpeaker.getNameLast(), containsString("Gumbrecht"));
     }
 
     @Test
     @RunAsClient
-    public void testUpdate() {
+    public void testUpdate() throws JsonParseException, JsonMappingException, IOException {
 
         final Speaker search = new Speaker();
-        search.setNameFirst("Zena");
-        search.setNameLast("Armstrong");
+        search.setNameFirst("Denton");
+        search.setNameLast("Weaver");
 
-        final Set<Speaker> speakers = this.getWebTarget("speaker/search").request(MediaType.APPLICATION_JSON_TYPE)
-                .put(Entity.json(search))
-                .readEntity(new GenericType<Set<Speaker>>() {
-                });
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(search);
 
-        final Speaker found = speakers.iterator().next();
-        final String id = found.getId();
+        String result = given().when()
+            .with()
+            .body(json)
+            .contentType(ContentType.JSON)
+            .put("speaker/search")
+        .then()
+        .statusCode(200)
+        .extract().asString();
 
-        Assert.assertEquals("Erat Nonummy Ultricies Incorporated", found.getOrganization());
+        Speaker[] objects = mapper.readValue(result, Speaker[].class);
+        assertThat(objects.length, is(1));
+        assertThat(objects[0].getOrganization(), containsString("Odio"));
 
-        found.setOrganization("Erat Corporation");
+        objects[0].setOrganization("Erat Corporations");
+        String output = mapper.writeValueAsString(objects[0]);
 
-        this.getWebTarget("speaker/update").request(MediaType.APPLICATION_JSON_TYPE)
-                .put(Entity.json(found));
-
-        final Speaker updated = this.getWebTarget("speaker/retrieve/{id}").resolveTemplate("id", id)
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get()
-                .readEntity(Speaker.class);
-
-        Assert.assertEquals("Failed to update speaker", "Erat Corporation", updated.getOrganization());
-        this.log.info("Updated: " + updated.toString());
+        given().when().with()
+            .body(output)
+            .contentType(ContentType.JSON)
+            .put("speaker/update")
+        .then()
+            .statusCode(200);
     }
 
     @Test
     @RunAsClient
-    public void testRemove() {
+    public void testRemove() throws JsonParseException, JsonMappingException, IOException {
+
+        // Look for the speaker Brent Collins (there are more than 1 actually)
         final Speaker search = new Speaker();
         search.setNameFirst("Brent");
         search.setNameLast("Collins");
 
-        final Set<Speaker> speakers = this.getWebTarget("speaker/search").request(MediaType.APPLICATION_JSON_TYPE)
-                .put(Entity.json(search))
-                .readEntity(new GenericType<Set<Speaker>>() {
-                });
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(search);
 
-        final Speaker found = speakers.iterator().next();
-        final String id = found.getId();
+        String result = given().when()
+            .with()
+            .body(json)
+            .contentType(ContentType.JSON)
+            .put("speaker/search")
+        .then()
+            .statusCode(200)
+            .extract().asString();
 
-        this.getWebTarget("speaker/remove/{id}").resolveTemplate("id", id)
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .delete();
+        Speaker[] objects = mapper.readValue(result, Speaker[].class);
 
-        final Speaker updated = this.getWebTarget("speaker/retrieve/{id}").resolveTemplate("id", id)
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get()
-                .readEntity(Speaker.class);
+        final String id = objects[0].getId();
 
-        Assert.assertNull("Found unexpected response", updated.getId());
-    }
-
-    private WebTarget getWebTarget(final String endpoint) {
-        final Client client = ClientBuilder.newBuilder().build();
-        return client.target(this.url.toExternalForm() + endpoint);
+        given()
+            .when()
+                .contentType(ContentType.JSON)
+                .delete("speaker/remove/" + id)
+            .then()
+                .statusCode(204);
     }
 
 }

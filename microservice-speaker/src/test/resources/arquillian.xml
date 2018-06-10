@@ -18,17 +18,10 @@
         http://jboss.org/schema/arquillian
         http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
 
-    <container qualifier="tomee" default="true">
+    <container qualifier="wildfly-swarm" default="true">
         <configuration>
-            <property name="classifier">plus</property>
-            <property name="httpPort">-1</property>
-            <property name="stopPort">-1</property>
-            <property name="ajpPort">-1</property>
-            <property name="deployerProperties">
-                openejb.deployer.binaries.use=true
-                java.naming.security.principal=tomee
-                java.naming.security.credentials=unsecured
-            </property>
+            <property name="host">localhost</property>
+            <property name="port">${swarm.arquillian.daemon.port:12399}</property>
         </configuration>
     </container>
 

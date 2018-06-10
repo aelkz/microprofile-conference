@@ -16,6 +16,7 @@ package io.microprofile.showcase.speaker.domain;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.microprofile.showcase.speaker.model.Speaker;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -44,8 +45,7 @@ public class VenueJavaOne2016Test {
     public void readSpeakers() throws Exception {
         final ObjectMapper om = new ObjectMapper();
         final InputStream is = this.getClass().getResourceAsStream("/ConferenceData.json");
-        final Set<Speaker> speakers = om.readValue(is, new TypeReference<Set<Speaker>>() {
-        });
+        final Set<Speaker> speakers = om.readValue(is, new TypeReference<Set<Speaker>>() {});
 
         Assert.assertFalse("Failed to get any speakers", speakers.isEmpty());
 

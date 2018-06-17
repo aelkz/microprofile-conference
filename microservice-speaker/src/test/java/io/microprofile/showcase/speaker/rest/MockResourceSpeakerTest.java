@@ -3,6 +3,7 @@ package io.microprofile.showcase.speaker.rest;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -29,6 +30,7 @@ import static org.hamcrest.CoreMatchers.is;
 @RunWith(Arquillian.class)
 public class MockResourceSpeakerTest {
 
+    @ArquillianResource
     private URL url;
 
     @Rule
@@ -41,7 +43,6 @@ public class MockResourceSpeakerTest {
 
     @Deployment
     public static WebArchive deploy() {
-
         File[] deps = Maven.resolver().loadPomFromFile("pom.xml").importDependencies(ScopeType.COMPILE, ScopeType.RUNTIME, ScopeType.TEST).resolve().withTransitivity().asFile();
 
         WebArchive wrap = ShrinkWrap.create(WebArchive.class,
@@ -86,3 +87,4 @@ public class MockResourceSpeakerTest {
 
 
 }
+

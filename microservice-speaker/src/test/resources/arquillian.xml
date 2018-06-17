@@ -22,6 +22,8 @@
         <configuration>
             <property name="host">localhost</property>
             <property name="port">${swarm.arquillian.daemon.port:12399}</property>
+            <property name="jbossHome">target/wildfly-13.0.0.Final/</property>
+            <property name="modulePath">target/wildfly-13.0.0.Final/modules</property>
         </configuration>
     </container>
 

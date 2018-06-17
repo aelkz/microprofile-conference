@@ -97,7 +97,8 @@
         <version.liberty.plugin>2.1</version.liberty.plugin>
 
         <!-- Test -->
-        <version.arquillian>1.1.11.Final</version.arquillian>
+        <!-- 1.1.11.Final -->
+        <version.arquillian>1.4.0.Final</version.arquillian>
         <version.arquillian.wildfly.remote>8.2.1.Final</version.arquillian.wildfly.remote>
         <version.arquillian.wildfly.managed>8.2.1.Final</version.arquillian.wildfly.managed>
         <version.bean-matchers>0.9</version.bean-matchers>
@@ -172,11 +173,13 @@
                 <artifactId>tomee-jaxrs</artifactId>
                 <version>${version.tomee}</version>
             </dependency>
+            <!--
             <dependency>
                 <groupId>org.apache.tomee</groupId>
                 <artifactId>arquillian-tomee-embedded</artifactId>
                 <version>${version.tomee}</version>
             </dependency>
+            -->
 
             <!-- PAYARA -->
             <dependency>
@@ -236,10 +239,18 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--
             <dependency>
                 <groupId>org.jboss.arquillian.container</groupId>
                 <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
                 <version>1.0.0.Final</version>
+                <scope>test</scope>
+            </dependency>
+            -->
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-managed</artifactId>
+                <version>2.1.0.Final</version>
                 <scope>test</scope>
             </dependency>
 

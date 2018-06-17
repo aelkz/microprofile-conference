@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
+import org.jboss.arquillian.container.test.api.TargetsContainer;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -51,7 +52,7 @@ import io.restassured.http.ContentType;
 @RunWith(Arquillian.class)
 public class ResourceSpeakerTest {
 
-    private final Logger log = Logger.getLogger(ResourceSpeakerTest.class.getName());
+    // private final Logger log = Logger.getLogger(ResourceSpeakerTest.class.getName());
 
     @ArquillianResource
     private URL url;
@@ -73,7 +74,6 @@ public class ResourceSpeakerTest {
         return wrap;
     }
 
-
     @CreateSwarm
     public static Swarm newContainer() throws Exception {
         Properties properties = new Properties();
@@ -81,6 +81,13 @@ public class ResourceSpeakerTest {
         properties.put("java.util.logging.manager", "org.jboss.logmanager.LogManager");
         Swarm swarm = new Swarm(properties);
         return swarm.withProfile("defaults");
+    }
+
+    @Test
+    public void emptyInContainerTest(){
+        System.out.println("=========================================");
+        System.out.println("This test should run inside the container");
+        System.out.println("=========================================");
     }
 
     @Test

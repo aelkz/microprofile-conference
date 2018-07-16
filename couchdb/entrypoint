@@ -1,0 +1,115 @@
+#!/bin/bash -l
+
+set -e
+
+[[ -f /etc/entrypoint ]] && . /etc/entrypoint
+[[ -f /etc/default/$APP ]] && . /etc/default/$APP
+
+: declare -ir ${ERLANG_THREADS:=$(( $(nproc) * 16 ))}
+: declare -ir ${ERLANG_PROCESSES:=$(( $(nproc) * 3200 ))}
+# options: debug info warning error none
+: readonly ${COUCHDB_LOG_LEVEL:=info}
+: readonly ${COUCHDB_DATA_PATH:=/data/$APP}
+
+: readonly ${COUCHDB_PORT:=5984}
+: readonly ${COUCHDB_ADMIN_PORT:=5986}
+
+: declare -ir ${COUCHDB_SHARDS:=2}
+: declare -ir ${COUCHDB_READ_QUORUM:=1}
+: declare -ir ${COUCHDB_WRITE_QUORUM:=1}
+# This should be set to 3 on a cluster
+: declare -ir ${COUCHDB_REPLICAS:=1}
+
+: readonly ${COUCHDB_DEV_INIT:=false}
+
+: ${SKIP_AUTO_CONFIG:=false}
+
+
+for file in default.ini local.ini vm.args; do
+    if [[ -e /config/$file ]]; then
+        ln -sf /config/$file ~/etc/$file
+        SKIP_AUTO_CONFIG=true
+    fi
+done
+
+for dir in local.d default.d; do
+    if [[ -L /config/$dir || -d /config/$dir ]]; then
+        ln -sf /config/$dir ~/etc/$dir
+        SKIP_AUTO_CONFIG=true
+    fi
+done
+
+if [[ -f /config/.erlang.cookie ]]; then
+    ln -sf /config/.erlang.cookie ~/.erlang.cookie
+fi
+
+
+if [[ ! $SKIP_AUTO_CONFIG == true ]]; then
+    log::m-info "Writing vm.args file ..."
+    tee ~/etc/vm.args <<EOF
+# Turn off the sasl error logger
+-sasl sasl_error_logger false
+
+# Use the following erlang hostname
+$(erlang::vmargs::get-name couchdb)
+
+# Use kernel poll functionality if supported by emulator
++K true
+
+# Maximum number of processes
++P $ERLANG_PROCESSES
+
+# Start a pool of asynchronous IO threads
++A $ERLANG_THREADS
+
+# Turn off the kernel error_logger
+-kernel error_logger silent
+
+# Set erlang distribution to use 11500-11999 ports instead of random
+# predictibility has value here
+-kernel inet_dist_listen_min 11500 inet_dist_listen_max 11999
+
+# Comment this line out if you want the Erlang shell
++Bd -noinput
+EOF
+
+    log::m-info "Rewriting local.ini file ..."
+    tee ~/etc/local.ini <<-EOF
+[couchdb]
+database_dir = $COUCHDB_DATA_PATH
+view_index_dir = $COUCHDB_DATA_PATH/indexes
+
+[chttpd]
+require_valid_user = false
+port = $COUCHDB_PORT
+bind_address = 0.0.0.0
+
+[httpd]
+require_valid_user = false
+port = $COUCHDB_ADMIN_PORT
+bind_address = 0.0.0.0
+
+[cluster]
+q = $COUCHDB_SHARDS
+n = $COUCHDB_REPLICAS
+r = $COUCHDB_READ_QUORUM
+w = $COUCHDB_WRITE_QUORUM
+
+[couch_httpd_auth]
+iterations = 1000
+
+[log]
+level = ${COUCHDB_LOG_LEVEL,,}
+EOF
+fi
+
+
+log::m-info "Ensuring correct permissions ..."
+chown -R $USER:$USER ~/etc /volumes/$APP/{data,backups}
+
+
+log::m-info "Starting $APP ..."
+cd ~
+    # for local dev clusters.  see: /usr/local/bin/couchdb-helper
+    [[ $COUCHDB_DEV_INIT == true ]] && gosu $USER couchdb-dev init &
+    exec gosu $USER couchdb

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: couchdb-lb
+  labels:
+    app: couchdb
+    project: telephoneorg
+    environment: production
+spec:
+  selector:
+    app: couchdb
+    project: telephoneorg
+    environment: production
+  ports:
+  - name: data
+    port: 5984
+  - name: admin
+    port: 5986

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: couchdb
+  labels:
+    app: couchdb
+    project: telephoneorg
+    environment: production
+data:
+  erlang.hostname: long
+  couchdb.log.level: warn
+  couchdb.shards: '4'
+  couchdb.replicas: '3'
+  couchdb.read-quorum: '1'
+  couchdb.write-quorum: '2'
+  couchdiscover.log.level: info

@@ -1,3 +1,6 @@
+# https://github.com/joeblackwaslike/docker-couchdb
+# user: admin
+# pass: admin
 FROM telephoneorg/debian:stretch
 
 MAINTAINER Joe Black <me@joeblack.nyc>

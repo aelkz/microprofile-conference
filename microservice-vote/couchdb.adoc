@@ -1,0 +1,15 @@
+== To Install a local couchdb
+
+=== Fedora (RHEL)
+----
+sudo dnf install couchdb
+----
+
+== Post Install
+- Check if a `couchdb` user was created on your system.
+- Start the server
+----
+$ sudo systemctl start couchdb
+$ sudo systemctl status couchdb
+----
+- Open web console http://localhost:5984/_utils/index.html and click the button in the bottom right to add and `admin` user with the password `redhat123`

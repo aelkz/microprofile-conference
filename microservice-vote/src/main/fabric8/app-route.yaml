@@ -1,8 +1,10 @@
 
 metadata:
-  name: ${service.name}
+  name: ${service.name}-ssl
 spec:
   to:
     kind: Service
-    name: ${service.name}
+    name: ${service.name}-secure
+  tls:
+    termination: passthrough
 

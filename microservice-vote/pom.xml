@@ -46,19 +46,47 @@
         <testServerHttpsPort>9443</testServerHttpsPort>
         <service.name>${project.artifactId}</service.name>
         <service.port>9191</service.port>
+        <container.port>8080</container.port>
         <docker.user>example</docker.user>
         <icon>http://microprofile.io/app/images/logo.png</icon>
     </properties>
 
-    <!--
-    <repositories>
-        <repository>
-            <id>liberty-starter-maven-repo</id>
-            <name>liberty-starter-maven-repo</name>
-            <url>http://liberty-app-accelerator.wasdev.developer.ibm.com/start/api/v1/repo</url>
-        </repository>
-    </repositories>
-    -->
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>wildfly-swarm-plugin</artifactId>
+                <configuration>
+                    <useUberJar>true</useUberJar>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- https://github.com/fabric8io/fabric8-maven-plugin -->
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>${version.fabric8.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>fmp</id>
+                        <goals>
+                            <goal>resource</goal>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <generator>
+                        <includes>
+                            <include>
+                                wildfly-swarm
+                            </include>
+                        </includes>
+                    </generator>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <profiles>
         <profile>
@@ -68,85 +96,6 @@
                 <package.file>${project.build.directory}/${project.artifactId}.zip</package.file>
                 <packaging.type>usr</packaging.type>
             </properties>
-        </profile>
-        <!--
-        <profile>
-            <id>liberty-test</id>
-            -Do not start the server unless testing-
-            <activation>
-                <property>
-                    <name>!skipTests</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>net.wasdev.wlp.maven.plugins</groupId>
-                        <artifactId>liberty-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>start-server</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>start-server</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-server</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop-server</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        -->
-        <profile>
-            <id>fabric8</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <!--This plugin requires that you Docker environment variables are defined correctly, check them with:-->
-                        <!--docker-machine env-->
-                        <groupId>io.fabric8</groupId>
-                        <artifactId>fabric8-maven-plugin</artifactId>
-                        <configuration>
-                            <mode>kubernetes</mode>
-                            <images>
-                                <image>
-                                    <name>${docker.user}/${project.artifactId}:${project.version}</name>
-                                    <build>
-                                        <from>TODO DOCKER IMAGE</from>
-                                        <assembly>
-                                            <basedir>${project.build.directory}/deployment</basedir>
-                                            <descriptorRef>artifact</descriptorRef>
-                                        </assembly>
-                                    </build>
-                                    <watch>
-                                        <interval>5000</interval>
-                                    </watch>
-                                </image>
-                            </images>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>resource</goal>
-                                    <goal>build</goal>
-                                    <!--<goal>deploy</goal>-->
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
     </profiles>
 
@@ -194,172 +143,4 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <!--
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>net.wasdev.wlp.maven.plugins</groupId>
-                    <artifactId>liberty-maven-plugin</artifactId>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <serverName>${wlpServerName}</serverName>
-                        <assemblyInstallDirectory>${project.build.directory}</assemblyInstallDirectory>
-                        <configFile>src/main/liberty/config/server.xml</configFile>
-                        <serverEnv>${basedir}/src/main/liberty/config/server.env</serverEnv>
-                        <packageFile>${package.file}</packageFile>
-                        <include>${packaging.type}</include>
-                        <bootstrapProperties>
-                            <default.http.port>${testServerHttpPort}</default.http.port>
-                            <default.https.port>${testServerHttpsPort}</default.https.port>
-                        </bootstrapProperties>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        -->
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <packagingExcludes>pom.xml</packagingExcludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <id>default-test</id>
-                        <configuration>
-                            <excludes>
-                                <exclude>**/it/**</exclude>
-                            </excludes>
-                            <reportsDirectory>${project.build.directory}/test-reports/unit</reportsDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Plugin to run functional tests -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <id>integration-test</id>
-                        <goals>
-                            <goal>integration-test</goal>
-                        </goals>
-                        <configuration>
-                            <includes>
-                                <include>**/it/**</include>
-                            </includes>
-                            <systemPropertyVariables>
-                                <liberty.test.port>${testServerHttpPort}</liberty.test.port>
-                                <app.context.root>${warContext}</app.context.root>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>verify-results</id>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <summaryFile>${project.build.directory}/test-reports/it/failsafe-summary.xml</summaryFile>
-                    <reportsDirectory>${project.build.directory}/test-reports/it</reportsDirectory>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-server-files</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <includeArtifactIds>server-snippet</includeArtifactIds>
-                    <prependGroupId>true</prependGroupId>
-                    <outputDirectory>
-                        ${project.build.directory}/wlp/usr/servers/${wlpServerName}/configDropins/defaults
-                    </outputDirectory>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-app</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                          <outputDirectory>${project.build.directory}/wlp/usr/servers/${wlpServerName}/dropins</outputDirectory>
-                          <resources>
-                            <resource>
-                              <directory>${project.build.directory}</directory>
-                              <includes>
-                                <include>${warfile.name}.war</include>
-                              </includes>
-                            </resource>
-                          </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Enable liberty-maven plugin -->
-            <!--
-            <plugin>
-                <groupId>net.wasdev.wlp.maven.plugins</groupId>
-                <artifactId>liberty-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>install-liberty</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>install-server</goal>
-                        </goals>
-                    </execution>
-                    - Install the config feature into the liberty server -
-               		<execution>
-           				<id>install-feature</id>
-           				<phase>prepare-package</phase>
-          				<goals>
-               				<goal>install-feature</goal>
-           				</goals>
-          				<configuration>
-             		  	  	<features>
-               		    		<acceptLicense>true</acceptLicense>
-                  	 			<feature>mpConfig-1.1</feature>
-              		 		</features>
-     						<installDirectory>${project.build.directory}/wlp</installDirectory>
-      						<serverName>${wlpServerName}</serverName>
-          				</configuration>
-       				</execution>
-                    <execution>
-                        <id>package-app</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>package-server</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
-        </plugins>
-    </build>
 </project>

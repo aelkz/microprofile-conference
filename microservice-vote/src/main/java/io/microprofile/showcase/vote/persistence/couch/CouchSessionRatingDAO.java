@@ -28,6 +28,9 @@ import javax.inject.Inject;
 
 import org.eclipse.microprofile.faulttolerance.Asynchronous;
 import org.eclipse.microprofile.faulttolerance.Bulkhead;
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Retry;
 import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.health.Health;
 import org.eclipse.microprofile.health.HealthCheck;
@@ -107,7 +110,7 @@ public class CouchSessionRatingDAO implements SessionRatingDAO, HealthCheck {
         SessionRating sessionRating = couch.request(id, RequestType.GET, null, SessionRating.class, null, 200, true);
         return sessionRating;
     }
-    
+
     @Asynchronous
     @Bulkhead(3)
     private Future<SessionRating> getRatingAsync(String id) {
@@ -120,6 +123,8 @@ public class CouchSessionRatingDAO implements SessionRatingDAO, HealthCheck {
     }
 
     @Override
+    @Timeout(1000)
+    @Retry(maxRetries = 1)
     public Collection<SessionRating> getRatingsByAttendee(String attendeeId) {
         return querySessionRating("attendee", attendeeId);
     }
@@ -145,9 +150,10 @@ public class CouchSessionRatingDAO implements SessionRatingDAO, HealthCheck {
     }
 
     @Override
-    @Timeout(5000)
+    @Timeout(1000)
+    @Fallback(fallbackMethod = "getAllRatingsEmpty")
+    @CircuitBreaker(requestVolumeThreshold = 1, failureRatio = 0.5, delay = 1000)
     public Collection<SessionRating> getAllRatings() {
-
         AllDocs allDocs = couch.request("_design/ratings/_view/all", RequestType.GET, null, AllDocs.class, null, 200);
 
         Collection<SessionRating> sessionRatings = new ArrayList<SessionRating>();
@@ -157,6 +163,10 @@ public class CouchSessionRatingDAO implements SessionRatingDAO, HealthCheck {
         }
 
         return sessionRatings;
+    }
+
+    public Collection<SessionRating> getAllRatingsEmpty() {
+        return null;
     }
 
     @Override

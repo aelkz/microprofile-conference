@@ -36,6 +36,7 @@
         <service.port>9191</service.port>
         <docker.user>example</docker.user>
         <icon>http://microprofile.io/app/images/logo.png</icon>
+        <version.tomee>7.0.1</version.tomee>
     </properties>
 
     <build>
@@ -219,6 +220,7 @@
                     <groupId>org.apache.tomee</groupId>
                     <artifactId>arquillian-tomee-embedded</artifactId>
                     <scope>test</scope>
+                    <version>${version.tomee}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.tomee</groupId>
